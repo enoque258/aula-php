@@ -1,0 +1,1 @@
+aquela coisa de alunos sairem e darmos panfleto... claro que virtualmemte atrai mais... devemos ter a capaicidadde de em 10pessoas 5 pelomenenos nos conhecerem 
