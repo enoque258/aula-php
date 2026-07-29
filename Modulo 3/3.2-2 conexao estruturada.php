@@ -2,12 +2,9 @@
 //DIA 29/07/2026
 //OBJETIVO: ver deversas formas/maneiras de acesso a basse de dados
 
-//pdo para acessar a base de dados
-$pdo = new PDO('mysql:host=localhost;dbname=meu_banco', $username, $password);
-//codigo completo de pdo, validacao, verificacao. completo
+//conexao com mysqli connect e o conn
+$conn = new mysqli_connect ('localhost', 'meu_usuario', 'minha_senha', 'meu_banco');
 
-//usando o conn para acessar base de dados
-$conn = pg_connect("host=localhost dbname=meu_banco user=meu_usuario password=minha_senha");
 pg_query($conn, "INSERT INTO famosos famosos(codigo, nome) VALUES (1, 'Fulano de Tal')");
 pg_query($conn, "INSERT INTO famosos famosos(codigo, nome) VALUES (2, 'Joao')");
 pg_query($conn, "INSERT INTO famosos famosos(codigo, nome) VALUES (3, 'pedro')");
@@ -16,4 +13,6 @@ pg_query($conn, "INSERT INTO famosos famosos(codigo, nome) VALUES (5, 'joao')");
 pg_query($conn, "INSERT INTO famosos famosos(codigo, nome) VALUES (6, 'Maria joa')");
 pg_query($conn, "INSERT INTO famosos famosos(codigo, nome) VALUES (7, 'jessica')");
 
-pg_close($conn);
+//fechar a conexao 
+mysqli_close($conn);
+
