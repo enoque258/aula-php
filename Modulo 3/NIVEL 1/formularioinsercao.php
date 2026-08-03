@@ -1,7 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-    <meta charset="utf-8">
-    <title> Cadastro de pessoa </title>
+    <meta charset="UTF-8">
+    <title>Cadastro de Pessoa</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -32,11 +33,7 @@
             margin-bottom: 5px;
         }
 
-        label:first-of-type {
-            margin-top: 0;
-        }
-
-        input[type="text"] {
+        input[type="text"], select {
             display: block;
             width: 100% !important;
             padding: 10px 12px;
@@ -48,16 +45,9 @@
             outline: none;
         }
 
-        input[type="text"]:focus {
+        input[type="text"]:focus, select:focus {
             border-color: #007bff;
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
-        }
-
-        input[readonly] {
-            background-color: #e9ecef;
-            color: #6c757d;
-            cursor: not-allowed;
-            border-color: #ced4da;
         }
 
         button {
@@ -80,34 +70,30 @@
     </style>
 </head>
 <body>
-    <form enctype="multipart/form-data" method="post" action="pessoa_save_insert.php">
-        <label> Código </label>
-        <input name="id" readonly="1" type="text" style="width:30%">
+    <?php require_once '../consulta.php'; ?>
+    <form method="post" action="pessoa_save_insert.php">
+        <label>Nome</label>
+        <input name="nome" type="text" required>
 
-        <label> Nome </label>
-        <input name="nome" readonly="1" type="text" style="width:50%">
+        <label>Endereço</label>
+        <input name="endereco" type="text">
 
-        <label> Endereço </label>
-        <input name="endereco" type="text" style="width:50%">
+        <label>Bairro</label>
+        <input name="bairro" type="text">
 
-        <label> Bairro </label>
-        <input name="bairro" type="text" style="width:40%">
+        <label>Telefone</label>
+        <input name="telefone" type="text">
 
-        <label> Telefone </label>
-        <input name="telefone" type="text" style="width:30%">
+        <label>Email</label>
+        <input name="email" type="text">
 
-        <label> Email </label>
-        <input name="email" type="text" style="width:40%">
+        <label>Cidade</label>
+        <select name="id_cidade" required>
+            <option value="">Selecione uma cidade</option>
+            <?php echo lista_combo_cidades(); ?>
+        </select>
 
-        <label> Cidade </label>
-        <input name="cidade" type="text" style="width:40%">
-        
-        <?php
-        requice_once 'consulta.php';
-        print consulta();
-        <input type= "submit">
-    ?>
-
+        <button type="submit">Salvar</button>
     </form>
 </body>
 </html>
